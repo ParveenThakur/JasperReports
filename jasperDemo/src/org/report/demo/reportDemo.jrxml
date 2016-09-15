@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportDemo" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e1c94387-d287-4972-b986-67bd974fe138">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="table" class="java.lang.String"/>
+	<field name="table" class="java.lang.String"/>
+	<field name="result" class="java.lang.Integer"/>
+	<variable name="resTotal" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{result}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="166" y="0" width="230" height="28" uuid="eceda254-15e3-4711-8810-6bd289fb6e20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Demo Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="7" y="0" width="50" height="20" uuid="e9e34ced-8d37-4999-8c34-a9f2b4a22b29"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr No,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="407" y="0" width="100" height="20" uuid="050c7f23-5365-4783-af75-aa3782e32385"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Result]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="180" y="0" width="162" height="20" uuid="84b827a2-8dd9-4951-b227-35118e09a438"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{table}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="7" y="3" width="50" height="20" uuid="1ef5f273-a38d-4ba1-aca3-231f17d21fcc"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="3" width="62" height="20" uuid="256c0308-2f35-4f8d-a56d-9abfcbfb5f9e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="183" y="3" width="100" height="20" uuid="efeab38d-54a6-433d-b24a-05c2084e9f4e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{table}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="407" y="3" width="100" height="20" uuid="2963077a-5851-4e76-80dd-84152aad7f33"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{result}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="307" y="0" width="100" height="20" uuid="ff445419-79ad-4349-9c9e-15521943b5eb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Sum :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="407" y="0" width="100" height="20" uuid="c44b8665-aff0-46d4-96bf-556dc4df0789"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{resTotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
